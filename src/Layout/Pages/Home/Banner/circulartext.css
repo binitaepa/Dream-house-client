@@ -1,0 +1,24 @@
+/* CircularTextAnimation.css */
+
+@keyframes rotateText {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .circular-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+  
+  .circular-text {
+    @apply inline-block font-bold text-3xl p-4 bg-pink-300 text-black rounded-full;
+    animation: rotateText 10s linear infinite; /* Adjust the duration as needed */
+    margin: 0 20px; /* Adjust the spacing between texts */
+  }
+  
