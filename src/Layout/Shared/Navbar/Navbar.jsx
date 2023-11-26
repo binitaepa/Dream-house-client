@@ -10,7 +10,7 @@ import logo from '../../../assets/home-logo-and-symbols-vector-removebg-preview.
 const Navbar = () => {
     const navOptions = <>
     <li><Link to="/"><IoMdHome></IoMdHome>Home</Link></li>
-    <li><Link to="/properties"><VscSymbolProperty></VscSymbolProperty>All Properties</Link></li>
+    <li><Link to="/allproperties"><VscSymbolProperty></VscSymbolProperty>All Properties</Link></li>
     
     <li>
         <Link to="/dashboard">

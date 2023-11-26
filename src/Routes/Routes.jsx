@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main/Main";
 import Home from "../Layout/Pages/Home/Home";
+import AllProperties from "../Layout/Pages/AllProperties/AllProperties";
 
 
 
@@ -13,6 +14,10 @@ import Home from "../Layout/Pages/Home/Home";
         {
             path:'/',
             element:<Home></Home>
+        },
+        {
+            path:'allproperties',
+            element:<AllProperties></AllProperties>
         }
       ]
     },
