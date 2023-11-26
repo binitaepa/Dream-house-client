@@ -3,6 +3,8 @@ import Main from "../Layout/Main/Main";
 import Home from "../Layout/Pages/Home/Home";
 import AllProperties from "../Layout/Pages/AllProperties/AllProperties";
 import PropertyDetails from "../Layout/PropertyDetail/PropertyDetails";
+import Login from "../Layout/Pages/Login/Login";
+import SignUp from "../Layout/Pages/SignUp/SignUp";
 
 
 
@@ -24,6 +26,14 @@ import PropertyDetails from "../Layout/PropertyDetail/PropertyDetails";
             path:'propertydetails/:id',
             element:<PropertyDetails></PropertyDetails>,
             loader:({params})=>fetch(`http://localhost:5000/properties/${params.id}`)
+        },
+        {
+            path:'login',
+            element:<Login></Login>
+        },
+        {
+            path:'signup',
+            element:<SignUp></SignUp>
         }
       ]
     },
