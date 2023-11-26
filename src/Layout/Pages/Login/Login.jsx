@@ -5,6 +5,8 @@ import img from '../../../assets/undraw_Sign_up_n6im.png'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import UseAuth from "../../../Hook/UseAuth";
+import UseAxiosPublic from "../../../Hook/UseAxiosPublic";
 const Login = () => {
     const [registerError, setRegisterError] = useState('');
     const [success, setSuccess] = useState('');
@@ -12,6 +14,23 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+    const { googleSignIn } = UseAuth();
+    const axiosPublic = UseAxiosPublic();
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            console.log(result.user);
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res =>{
+                console.log(res.data);
+                navigate('/');
+            })
+        })
+    }
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -85,7 +104,7 @@ const Login = () => {
                         <div className='p-4 space-y-3 mb-6'>
                         <h2 className="text-3xl items-center flex justify-center">Or</h2>
             <h2 className="text-3xl flex justify-center items-center">Login With</h2>
-                <button  className="btn btn-outline w-full text-white bg-amber-500">
+                <button onClick={handleGoogleSignIn}  className="btn btn-outline w-full text-white bg-amber-500">
                     <FaGoogle></FaGoogle>
                     Google
                 </button>

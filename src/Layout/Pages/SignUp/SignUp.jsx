@@ -4,14 +4,31 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import img from '../../../assets/undraw_Sign_up_n6im.png'
+import UseAuth from "../../../Hook/UseAuth";
+import { FaGoogle } from "react-icons/fa6";
 
 const SignUp = () => {
     const axiosPublic=UseAxiosPublic()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const { googleSignIn } = UseAuth();
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            console.log(result.user);
+            const userInfo = {
+                email: result.user?.email,
+                name: result.user?.displayName
+            }
+            axiosPublic.post('/users', userInfo)
+            .then(res =>{
+                console.log(res.data);
+                navigate('/');
+            })
+        })
+    }
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
@@ -50,10 +67,9 @@ const SignUp = () => {
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-                <h1 className="text-5xl font-bold">Sign up now!</h1>
-                <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+               <img src={img} alt="" />
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-orange-100">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -97,7 +113,16 @@ const SignUp = () => {
                     <div className="form-control mt-6">
                         <input className="btn bg-orange-300" type="submit" value="Sign Up" />
                     </div>
+
                 </form>
+                <div className='p-4 space-y-3 mb-6'>
+                        <h2 className="text-3xl items-center flex justify-center">Or</h2>
+            <h2 className="text-3xl flex justify-center items-center">Login With</h2>
+                <button onClick={handleGoogleSignIn}  className="btn btn-outline w-full text-white bg-amber-500">
+                    <FaGoogle></FaGoogle>
+                    Google
+                </button>
+                </div>
                 <p className="px-6"><small>Already have an account <Link to="/login" className="text-xl text-orange-300">Login</Link></small></p>
               
             
