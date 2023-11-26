@@ -29,7 +29,12 @@ const Review = () => {
                         key={review._id}
                     >
                         <div className="flex flex-col items-center mx-24 my-16">
-                           <img src={review.reviewerImage} alt="" />
+                        <div className="avatar">
+  <div className="w-24 rounded-full">
+  <img src={review.reviewerImage} alt="" />
+  </div>
+</div>
+                          
                             <p className="py-8">{review.reviewDescription}</p>
                             <h3 className="text-2xl text-orange-400">{review.reviewerName}</h3>
                             <h2>{review.propertyTitle}</h2>

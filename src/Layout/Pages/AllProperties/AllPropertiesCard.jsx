@@ -20,7 +20,11 @@ const AllPropertiesCard = ({item}) => {
                 <p className="items-center justify-center flex text-amber-900 border-b-2">DONATED BY</p>
                <div className="flex justify-between"> <p className="text-xl mt-5 text-orange-500">{agent.name}</p>
                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+               <div className="avatar">
+  <div className="w-24 mask mask-hexagon">
     <img src={agent.image} />
+  </div>
+  </div>
   </div>
     </div>
                 <div className="card-actions justify-center items-center">

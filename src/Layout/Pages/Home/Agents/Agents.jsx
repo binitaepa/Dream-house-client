@@ -1,4 +1,6 @@
-
+import pic1 from '../../../../assets/pic1.jpg'
+import pic2 from '../../../../assets/pic6.png'
+import pic3 from '../../../../assets/r4.jpg'
 import { MdOutlineEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 const Agents = () => {
@@ -11,7 +13,7 @@ const Agents = () => {
             <div className="flex gap-10 mt-5">
             
             <div><div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="" alt="Shoes" /></figure>
+  <figure><img src={pic1} alt="Shoes" className='h-[390px] w-full' /></figure>
   <div className="card-body">
     <h2 className="card-title">Wade Warren</h2>
     <p>Salesperson</p>
@@ -22,7 +24,7 @@ const Agents = () => {
 </div></div>
             <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="" alt="Shoes" /></figure>
+  <figure><img src={pic2} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">Leslie Alexander</h2>
     <p>Commercial Broker</p>
@@ -34,7 +36,7 @@ const Agents = () => {
             </div>
             <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src="" alt="Shoes" /></figure>
+  <figure><img src={pic3} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">Darlene Robertson</h2>
     <p>Realtor</p>

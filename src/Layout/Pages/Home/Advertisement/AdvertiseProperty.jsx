@@ -6,7 +6,7 @@ const AdvertiseProperty = ({item}) => {
     return (
         <div>
              <div className="flex flex-col-2 ">
-            <img style={{borderRadius: '0 200px 200px 200px'}} className="w-[100px]" src={image} alt="" />
+            <img style={{borderRadius: '200px 200px 200px 200px'}} className="w-[100px] mr-5" src={image} alt="" />
             <div>
                 <h3 className="uppercase text-orange-400">Location: {location}</h3>
                 <p>Status:{verificationStatus}</p>
