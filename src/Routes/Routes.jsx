@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard/Dashboard";
 import MyProfile from "../Layout/Dashboard/MyProfile";
 import Wish from "../Layout/Dashboard/Wish/Wish";
 import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
+import PropertyBought from "../Layout/Dashboard/PropertyBought/PropertyBought";
 
 
 
@@ -58,6 +59,10 @@ import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
             {
                 path:'makeoffer',
                 element:<MakeOffer></MakeOffer>
+            },
+            {
+                path:'propertybought',
+                element:<PropertyBought></PropertyBought>
             }
         ]
     }

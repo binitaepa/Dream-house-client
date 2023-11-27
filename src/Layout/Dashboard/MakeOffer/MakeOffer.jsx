@@ -14,14 +14,17 @@ const MakeOffer = () => {
    
     // now send the menu item data to the server with the image url
     const offerItem = {
-        name: data.name,
-        category: data.category,
-        price: parseFloat(data.price),
-        recipe: data.recipe,
+        title: data.title,
+        location: data.location,
+        agent:data.agent,
+        amount: data.amount,
+        email: data.email,
+        name:data.name,
+        status:data.status
        
     }
     // 
-    const wishRes = await axiosSecure.post('/wishOffer', offerItem);
+    const wishRes = await axiosSecure.post('/wishlist', offerItem);
     console.log(wishRes.data)
     if(wishRes.data.insertedId){
         // show success popup
@@ -29,7 +32,7 @@ const MakeOffer = () => {
         Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${data.name} is added to the wish.`,
+            title: `${data.title} is added to the data.`,
             showConfirmButton: false,
             timer: 1500
           });
@@ -48,7 +51,7 @@ const MakeOffer = () => {
                         <input
                             type="text"
                             placeholder="add title"
-                            {...register('name', { required: true })}
+                            {...register('title', { required: true })}
                             required
                             className="input input-bordered w-full" />
                     </div>
@@ -59,8 +62,8 @@ const MakeOffer = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="add title"
-                            {...register('name', { required: true })}
+                            placeholder="location"
+                            {...register('location', { required: true })}
                             required
                             className="input input-bordered w-full" />
                     </div>
@@ -71,8 +74,8 @@ const MakeOffer = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="add title"
-                            {...register('name', { required: true })}
+                            placeholder="Agent Name"
+                            {...register('agent', { required: true })}
                             required
                             className="input input-bordered w-full" />
                     </div>
@@ -82,7 +85,7 @@ const MakeOffer = () => {
                             <label className="label">
                                 <span className="label-text">offered Amount*</span>
                             </label>
-                            <select defaultValue="default" {...register('category', { required: true })}
+                            <select defaultValue="default" {...register('amount', { required: true })}
                                 className="select select-bordered w-full">
                                 <option disabled value="default">Select amount</option>
                                 <option value="1,00000">1,00000</option>
@@ -92,25 +95,38 @@ const MakeOffer = () => {
                                 <option value="5,00000">5,00000</option>
                             </select>
                         </div>
+                        {/* status */}
+                        <div className="form-control w-full my-6">
+                            <label className="label">
+                                <span className="label-text">status*</span>
+                            </label>
+                            <select defaultValue="default" {...register('status', { required: true })}
+                                className="select select-bordered w-full">
+                                <option disabled value="default">Select amount</option>
+                                <option value="verified">verified</option>
+                                <option value="pending">pending</option>
+                                
+                            </select>
+                        </div>
 
                         {/* email */}
                         <div className="form-control w-full my-6">
                             <label className="label">
-                                <span className="label-text">Your email*</span>
+                                <span className="label-text">Buyer email*</span>
                             </label>
                             <input
-                                type="number"
-                                placeholder="Price"
-                                {...register('price', { required: true })}
+                                type="text"
+                                placeholder="email"
+                                {...register('email', { required: true })}
                                 className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full my-6">
                             <label className="label">
-                                <span className="label-text">Your name*</span>
+                                <span className="label-text">Buyer name*</span>
                             </label>
                             <input
-                                type="number"
-                                placeholder="Price"
+                                type="text"
+                                placeholder="name"
                                 {...register('price', { required: true })}
                                 className="input input-bordered w-full" />
                         </div>
