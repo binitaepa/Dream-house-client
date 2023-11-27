@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import MyProfile from "../Layout/Dashboard/MyProfile";
 import Wish from "../Layout/Dashboard/Wish/Wish";
+import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
 
 
 
@@ -53,6 +54,10 @@ import Wish from "../Layout/Dashboard/Wish/Wish";
             {
                 path:'wish',
                 element:<Wish></Wish>
+            },
+            {
+                path:'makeoffer',
+                element:<MakeOffer></MakeOffer>
             }
         ]
     }

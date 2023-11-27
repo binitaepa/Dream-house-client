@@ -29,7 +29,7 @@ const Wish = () => {
       </div>
         </div>
                     <div className="card-actions justify-between flex ">
-                        <Link to={`/propertydetails/${item._id}`}>
+                        <Link to={`/dashboard/makeoffer`}>
                             <button className="btn bg-orange-400 w-full text-white ">Make Offer</button>
                             
                         </Link>
