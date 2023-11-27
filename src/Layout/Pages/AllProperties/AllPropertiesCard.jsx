@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import UseProperty from "../../../Hook/UseProperty";
+
 
 
 const AllPropertiesCard = ({item}) => {

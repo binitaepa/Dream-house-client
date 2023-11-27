@@ -5,6 +5,9 @@ import AllProperties from "../Layout/Pages/AllProperties/AllProperties";
 import PropertyDetails from "../Layout/PropertyDetail/PropertyDetails";
 import Login from "../Layout/Pages/Login/Login";
 import SignUp from "../Layout/Pages/SignUp/SignUp";
+import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import MyProfile from "../Layout/Dashboard/MyProfile";
 
 
 
@@ -20,11 +23,11 @@ import SignUp from "../Layout/Pages/SignUp/SignUp";
         },
         {
             path:'allproperties',
-            element:<AllProperties></AllProperties>
+            element:<PrivateRoutes><AllProperties></AllProperties></PrivateRoutes>
         },
         {
             path:'propertydetails/:id',
-            element:<PropertyDetails></PropertyDetails>,
+            element:<PrivateRoutes><PropertyDetails></PropertyDetails>,</PrivateRoutes>,
             loader:({params})=>fetch(`http://localhost:5000/properties/${params.id}`)
         },
         {
@@ -37,4 +40,15 @@ import SignUp from "../Layout/Pages/SignUp/SignUp";
         }
       ]
     },
+    {
+        path:'dashboard',
+        element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        children:[
+            {
+                path:'myprofile',
+                element:<MyProfile></MyProfile>
+
+            }
+        ]
+    }
   ]);

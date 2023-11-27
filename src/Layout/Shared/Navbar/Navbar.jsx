@@ -3,11 +3,21 @@ import { IoMdHome } from "react-icons/io";
 import { VscSymbolProperty } from "react-icons/vsc";
 import { MdDashboard } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
-import { MdSell } from "react-icons/md";
+
 import logo from '../../../assets/home-logo-and-symbols-vector-removebg-preview.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
     const navOptions = <>
     <li><Link to="/"><IoMdHome></IoMdHome>Home</Link></li>
     <li><Link to="/allproperties"><VscSymbolProperty></VscSymbolProperty>All Properties</Link></li>
@@ -17,8 +27,13 @@ const Navbar = () => {
           <MdDashboard></MdDashboard> Dashboard
         </Link>
     </li>
-   
-            <li><Link to="/login"><IoMdLogIn></IoMdLogIn>Login/Register</Link></li>
+    <Link to="/dashboard/cart">
+                <button className="btn">
+                    <FaShoppingCart className="mr-2"></FaShoppingCart>
+                    {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+                </button>
+            </Link>
+           
       
 </>
     return (
@@ -43,9 +58,44 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn text-white bg-orange-400"><MdSell></MdSell>Sell Property</a>
-                </div>
+                {/* <div className="navbar-end">
+                {
+            user ? <>
+                <span className="mt-2">{user?.displayName}</span>
+                <button onClick={handleLogOut} className="btn btn-ghost mb-4">LogOut<IoMdLogIn></IoMdLogIn></button>
+            </> : <>
+                <li ><Link to="/login">Login</Link></li>
+            </>
+        }
+        
+                </div> */}
+                 <div className="navbar-end">
+    
+    {
+                      user ?
+                          <>
+                          <details className="collapse ">
+    <summary className="collapse-title "><div className=" ">
+    <span className="bg-orange-300 btn">{user?.displayName}</span>
+  
+  </div></summary>
+    <div className="collapse-content"> 
+    <div className="flex flex-col">
+  
+  <button onClick={handleLogOut} className="btn  bg-amber-500 text-white btn-warning  ">Log Out</button>
+  {/* {user?.displayName && <p> {user.displayName}</p>} */}
+  <p className="md:w-[200px] text-amber-400 font-extrabold ml-7">{user.email}</p>
+  </div>
+    </div>
+  </details>
+                          
+                  
+                          </>
+                          :
+                          <Link to='/login'><button className="btn bg-amber-500 text-white btn-warning">Login<IoMdLogIn></IoMdLogIn></button></Link>
+                  }
+    
+    </div>
             </div>
         </div>
     );
