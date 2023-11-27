@@ -8,11 +8,12 @@ import logo from '../../../assets/home-logo-and-symbols-vector-removebg-preview.
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { FaShoppingCart } from "react-icons/fa";
+import UseWish from "../../../Hook/UseWish";
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
+const [wish]=UseWish()
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -30,7 +31,7 @@ const Navbar = () => {
     <Link to="/dashboard/cart">
                 <button className="btn">
                     <FaShoppingCart className="mr-2"></FaShoppingCart>
-                    {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+                    <div className="badge badge-secondary">+{wish.length}</div>
                 </button>
             </Link>
            

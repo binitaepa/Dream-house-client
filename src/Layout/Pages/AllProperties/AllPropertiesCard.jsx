@@ -17,7 +17,7 @@ const AllPropertiesCard = ({item}) => {
                 <h2 className="font-bold">Status: {verificationStatus} <br /> <span>Price Range:{priceRange}</span></h2>
                 <p>Location: {location}</p>
                 <p className="text-sm">Notes:{description}</p>
-                <p className="items-center justify-center flex text-amber-900 border-b-2">DONATED BY</p>
+                <p className="items-center justify-center flex text-amber-900 border-b-2">Agent</p>
                <div className="flex justify-between"> <p className="text-xl mt-5 text-orange-500">{agent.name}</p>
                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                <div className="avatar">

@@ -8,15 +8,17 @@ import { GoCodeReview } from "react-icons/go";
 import UseAuth from "../../Hook/UseAuth";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../Hook/UseAxiosSecure";
+import UseWish from "../../Hook/UseWish";
 
 const PropertyDetails = () => {
     const axiosSecure=UseAxiosSecure()
+    const [,refetch]=UseWish();
     const {_id, image,title,location, priceRange, verificationStatus,description,agent} = useLoaderData();
-  const   item=useLoaderData();
+ 
  const {user}=UseAuth();
  const location1=useLocation()
-  const handleAddToList=(item)=>{
-       console.log(item,user.email)
+  const handleAddToList=()=>{
+    
        if(user && user.email){
         const wishItem ={
           menuId:_id,
@@ -42,7 +44,7 @@ const PropertyDetails = () => {
                         timer: 1500
                     });
                     // refetch cart to update the cart items count
-                  //  refetch();
+                   refetch();
             }
         }
         })
@@ -71,7 +73,7 @@ const PropertyDetails = () => {
             <p className="text-red-600 flex">{priceRange} <IoPricetagOutline></IoPricetagOutline></p>
             <p className="text-3xl flex gap-2">Agent: {agent.name}<FaLaptopHouse></FaLaptopHouse></p>
            
-            <button onClick={()=>handleAddToList(item)} className="bg-orange-400 btn text-white ">Add To WishList <TbJewishStar></TbJewishStar></button>
+            <button onClick={handleAddToList} className="bg-orange-400 btn text-white ">Add To WishList <TbJewishStar></TbJewishStar></button>
             <button  className=" ">
             <button className="btn bg-orange-400 btn text-white" onClick={()=>document.getElementById('my_modal_5').showModal()}>Review<GoCodeReview></GoCodeReview> </button>
 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">

@@ -8,6 +8,7 @@ import SignUp from "../Layout/Pages/SignUp/SignUp";
 import PrivateRoutes from "./PrivateRoutes";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import MyProfile from "../Layout/Dashboard/MyProfile";
+import Wish from "../Layout/Dashboard/Wish/Wish";
 
 
 
@@ -48,6 +49,10 @@ import MyProfile from "../Layout/Dashboard/MyProfile";
                 path:'myprofile',
                 element:<MyProfile></MyProfile>
 
+            },
+            {
+                path:'wish',
+                element:<Wish></Wish>
             }
         ]
     }
