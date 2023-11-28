@@ -28,7 +28,7 @@ const [wish]=UseWish()
           <MdDashboard></MdDashboard> Dashboard
         </Link>
     </li>
-    <Link to="/dashboard/cart">
+    <Link to="/dashboard/wish">
                 <button className="btn">
                     <FaShoppingCart className="mr-2"></FaShoppingCart>
                     <div className="badge badge-secondary">+{wish.length}</div>

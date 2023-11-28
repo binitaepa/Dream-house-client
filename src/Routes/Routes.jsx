@@ -13,6 +13,8 @@ import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
 import PropertyBought from "../Layout/Dashboard/PropertyBought/PropertyBought";
 import ReviewRate from "../Layout/Dashboard/ReviewRate/ReviewRate";
 import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 
 
@@ -21,6 +23,7 @@ import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<PageNotFound></PageNotFound>,
       children: [
         {
             path:'/',
@@ -48,6 +51,7 @@ import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
     {
         path:'dashboard',
         element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+        errorElement:<PageNotFound></PageNotFound>,
         children:[
             {
                 path:'myprofile',
@@ -73,7 +77,7 @@ import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
             // admin routes
             {
                 path:'users',
-                element:<AllUsers></AllUsers>
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
         ]
     }
