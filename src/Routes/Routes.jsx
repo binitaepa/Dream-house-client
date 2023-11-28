@@ -12,6 +12,7 @@ import Wish from "../Layout/Dashboard/Wish/Wish";
 import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
 import PropertyBought from "../Layout/Dashboard/PropertyBought/PropertyBought";
 import ReviewRate from "../Layout/Dashboard/ReviewRate/ReviewRate";
+import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
 
 
 
@@ -68,6 +69,11 @@ import ReviewRate from "../Layout/Dashboard/ReviewRate/ReviewRate";
             {
                 path:'reviewrate',
                 element:<ReviewRate></ReviewRate>
+            },
+            // admin routes
+            {
+                path:'users',
+                element:<AllUsers></AllUsers>
             }
         ]
     }

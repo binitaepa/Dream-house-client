@@ -1,10 +1,11 @@
 
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList,  FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
-import USeAdmin from '../../Hook/UseAdmin';
+import { FaAd, FaCalendar, FaEnvelope, FaHome, FaList,  FaShoppingCart, FaUsers } from "react-icons/fa";
+// import USeAdmin from '../../Hook/UseAdmin';
 
 const Dashboard = () => {
-    const [isAdmin]=USeAdmin();
+    // const [isAdmin]=USeAdmin();
+    const isAdmin=true;
     return (
         <div className="flex">
             <div className="w-64 min-h-screen bg-orange-400">
@@ -12,29 +13,25 @@ const Dashboard = () => {
                {
                 isAdmin ? <>
                      <li>
-                                <NavLink to="/dashboard/adminHome">
+                                <NavLink to="/dashboard/adminprofile">
                                     <FaHome></FaHome>
-                                    Admin Home</NavLink>
+                                    Admin Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addItems">
-                                    <FaUtensils></FaUtensils>
-                                    Add Items</NavLink>
+                                <NavLink to="/dashboard/mangeproperties">
+                                <FaShoppingCart></FaShoppingCart>
+                                    Manage Property</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manageItems">
+                                <NavLink to="/dashboard/manageReview">
                                     <FaList></FaList>
-                                    Manage Items</NavLink>
+                                    Manage Review</NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/dashboard/bookings">
-                                    <FaBook></FaBook>
-                                    Manage Bookings</NavLink>
-                            </li>
+                            
                             <li>
                                 <NavLink to="/dashboard/users">
                                     <FaUsers></FaUsers>
-                                    All Users</NavLink>
+                                    Manage Users</NavLink>
                             </li>
                 
                 </>:<>
@@ -60,6 +57,8 @@ const Dashboard = () => {
                     </li>
                    </>
                }
+
+               {/* sharednavlink */}
                     <div className="divider"></div>
                     <li>
                         <NavLink to="/">
@@ -68,7 +67,7 @@ const Dashboard = () => {
                     </li>
                    
                     <li>
-                        <NavLink to="/dashboard/contact">
+                        <NavLink to="/">
                             <FaEnvelope></FaEnvelope>
 
                             
