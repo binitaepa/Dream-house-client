@@ -1,14 +1,42 @@
 
 import { FaTrashAlt } from "react-icons/fa";
 import UseReviewList from "../../../Hook/UseReviewList";
+import Swal from "sweetalert2";
+import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 
 
 
 
 const ReviewRate = () => {
-    const [reviewlist]=UseReviewList();
+    const [reviewlist,refetch]=UseReviewList();
+    const axiosSecure=UseAxiosSecure()
+
     const handleDeleteReview=(item)=>{
         console.log(item);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/ratelist/${item._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                           refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     return (
