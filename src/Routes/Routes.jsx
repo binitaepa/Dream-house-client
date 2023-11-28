@@ -11,6 +11,7 @@ import MyProfile from "../Layout/Dashboard/MyProfile";
 import Wish from "../Layout/Dashboard/Wish/Wish";
 import MakeOffer from "../Layout/Dashboard/MakeOffer/MakeOffer";
 import PropertyBought from "../Layout/Dashboard/PropertyBought/PropertyBought";
+import ReviewRate from "../Layout/Dashboard/ReviewRate/ReviewRate";
 
 
 
@@ -63,6 +64,10 @@ import PropertyBought from "../Layout/Dashboard/PropertyBought/PropertyBought";
             {
                 path:'propertybought',
                 element:<PropertyBought></PropertyBought>
+            },
+            {
+                path:'reviewrate',
+                element:<ReviewRate></ReviewRate>
             }
         ]
     }

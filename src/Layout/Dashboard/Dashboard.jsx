@@ -54,7 +54,7 @@ const Dashboard = () => {
                             Property Bought </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/review">
+                        <NavLink to="/dashboard/reviewrate">
                             <FaAd></FaAd>
                             My Review</NavLink>
                     </li>
