@@ -1,11 +1,12 @@
 
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaAd, FaCalendar, FaEnvelope, FaHome, FaList,  FaShoppingCart, FaUsers } from "react-icons/fa";
+import USeAdmin from '../../Hook/UseAdmin';
 // import USeAdmin from '../../Hook/UseAdmin';
 
 const Dashboard = () => {
-    // const [isAdmin]=USeAdmin();
-    const isAdmin=true;
+     const [isAdmin]=USeAdmin();
+  
     return (
         <div className="flex">
             <div className="w-64 min-h-screen bg-orange-400">
