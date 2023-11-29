@@ -1,4 +1,4 @@
-
+import { SiSellfy } from "react-icons/si";
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaAd, FaCalendar, FaEnvelope, FaHome, FaList,  FaShoppingCart, FaUsers } from "react-icons/fa";
 import USeAdmin from '../../Hook/UseAdmin';
@@ -45,23 +45,23 @@ const Dashboard = () => {
                                     Agent Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/mangeproperties">
+                                <NavLink to="/dashboard/addproperty">
                                 <FaShoppingCart></FaShoppingCart>
-                                    Agent Property</NavLink>
+                                    Add Property</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/reviewrate">
+                                <NavLink to="/dashboard/myaddedproperty">
                                     <FaList></FaList>
                                     My Added Properties</NavLink>
                             </li>
                             
                             <li>
-                                <NavLink to="/dashboard">
-                                    <FaUsers></FaUsers>
+                                <NavLink to="/dashboard/mysoldproperty">
+                                     <SiSellfy></SiSellfy>
                                     My Sold Properties</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard">
+                                <NavLink to="/dashboard/requestedproperty">
                                     <FaUsers></FaUsers>
                                     Requested Properties</NavLink>
                             </li>

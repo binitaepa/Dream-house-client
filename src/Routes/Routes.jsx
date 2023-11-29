@@ -15,6 +15,8 @@ import ReviewRate from "../Layout/Dashboard/ReviewRate/ReviewRate";
 import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import AgentAddProperty from "../Layout/Dashboard/AgentAddProperty/AgentAddProperty";
+import PropertyAdded from "../Layout/Dashboard/PropertyAdded/PropertyAdded";
 
 
 
@@ -73,6 +75,16 @@ import PageNotFound from "../PageNotFound/PageNotFound";
             {
                 path:'reviewrate',
                 element:<ReviewRate></ReviewRate>
+            },
+            // agent
+            {
+
+                path:'addproperty',
+                element:<AgentAddProperty></AgentAddProperty>
+            },
+            {
+                path:'myaddedproperty',
+                element:<PropertyAdded></PropertyAdded>
             },
             // admin routes
             {
