@@ -36,7 +36,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
         {
             path:'propertydetails/:id',
             element:<PrivateRoutes><PropertyDetails></PropertyDetails>,</PrivateRoutes>,
-            loader:({params})=>fetch(`http://localhost:5000/properties/${params.id}`)
+            loader:({params})=>fetch(`https://dream-house-project-server.vercel.app/properties/${params.id}`)
         },
         {
             path:'login',
