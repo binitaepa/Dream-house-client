@@ -2,12 +2,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaAd, FaCalendar, FaEnvelope, FaHome, FaList,  FaShoppingCart, FaUsers } from "react-icons/fa";
 import USeAdmin from '../../Hook/UseAdmin';
+import UseAgent from '../../Hook/UseAgent';
 // import UseAgent from '../../Hook/UseAgent';
 // import USeAdmin from '../../Hook/UseAdmin';
 
 const Dashboard = () => {
      const [isAdmin]=USeAdmin();
-//  const [isAgent]=UseAgent();
+       const [isAgent]=UseAgent();
     return (
         <div className="flex">
             <div className="w-64 min-h-screen bg-orange-400">
@@ -36,36 +37,36 @@ const Dashboard = () => {
                                     Manage Users</NavLink>
                             </li>
                 
-                </>
-                // isAgent ? <>
-                // <li>
-                //                 <NavLink to="/dashboard/myprofile">
-                //                     <FaHome></FaHome>
-                //                     Agent Profile</NavLink>
-                //             </li>
-                //             <li>
-                //                 <NavLink to="/dashboard/mangeproperties">
-                //                 <FaShoppingCart></FaShoppingCart>
-                //                     Agent Property</NavLink>
-                //             </li>
-                //             <li>
-                //                 <NavLink to="/dashboard/reviewrate">
-                //                     <FaList></FaList>
-                //                     My Added Properties</NavLink>
-                //             </li>
+                </>:
+                isAgent ? <>
+                <li>
+                                <NavLink to="/dashboard/myprofile">
+                                    <FaHome></FaHome>
+                                    Agent Profile</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/mangeproperties">
+                                <FaShoppingCart></FaShoppingCart>
+                                    Agent Property</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/reviewrate">
+                                    <FaList></FaList>
+                                    My Added Properties</NavLink>
+                            </li>
                             
-                //             <li>
-                //                 <NavLink to="/dashboard">
-                //                     <FaUsers></FaUsers>
-                //                     My Sold Properties</NavLink>
-                //             </li>
-                //             <li>
-                //                 <NavLink to="/dashboard">
-                //                     <FaUsers></FaUsers>
-                //                     Requested Properties</NavLink>
-                //             </li>
+                            <li>
+                                <NavLink to="/dashboard">
+                                    <FaUsers></FaUsers>
+                                    My Sold Properties</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard">
+                                    <FaUsers></FaUsers>
+                                    Requested Properties</NavLink>
+                            </li>
                 
-                // </>
+                </>
                 :<>
                      <li>
                         <NavLink to="/dashboard/myprofile">
