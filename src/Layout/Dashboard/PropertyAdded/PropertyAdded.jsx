@@ -1,20 +1,50 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hook/UseAxiosSecure";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const PropertyAdded = () => {
      const axiosSecure=UseAxiosSecure();
-    const {data : property =[]}=useQuery({
+    const {data : property =[],refetch}=useQuery({
         queryKey:['addpropertylist'],
         queryFn: async ()=>{
             const res =await axiosSecure.get('/addpropertylist');
             return res.data;
         }
     })
+
+
+    const propertyDelete=(item)=>{
+        console.log(item);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/addpropertylist/${item._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                           refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
     return (
         <div>
-        <h2 className="text-center text-2xl font-bold">Your Wish</h2>
+        <h2 className="text-center text-2xl font-bold">Property</h2>
         <div className="grid md:grid-cols-2 mt-10 ml-5 gap-10">
         {
             property.map((item)=> <div key={item._id} className="card w-96 bg-orange-200 ">
@@ -36,11 +66,11 @@ const PropertyAdded = () => {
     </div>
     <button className="btn items-center bg-orange-400">Verified or not?</button>
                 <div className="card-actions justify-between flex ">
-                    <Link to={`/dashboard/makeoffer`}>
+                    <Link to={`/dashboard/updateproperty ${item._id}`}>
                         <button className="btn bg-orange-400 w-full text-white ">Update</button>
                         
                     </Link>
-                    <button className="btn bg-orange-400  text-white ">Delete</button>
+                    <button onClick={()=>propertyDelete(item)} className="btn bg-orange-400  text-white ">Delete</button>
                 </div>
                
             </div>
