@@ -17,6 +17,7 @@ import AdminRoute from "./AdminRoute";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import AgentAddProperty from "../Layout/Dashboard/AgentAddProperty/AgentAddProperty";
 import PropertyAdded from "../Layout/Dashboard/PropertyAdded/PropertyAdded";
+import ManageProperty from "../Layout/Dashboard/ManageProperty/ManageProperty";
 
 
 
@@ -90,7 +91,10 @@ import PropertyAdded from "../Layout/Dashboard/PropertyAdded/PropertyAdded";
             {
                 path:'users',
                 element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
-            }
+            },
+           { path:'manageproperty',
+            element:<AdminRoute><ManageProperty></ManageProperty></AdminRoute>
+        }
         ]
     }
   ]);

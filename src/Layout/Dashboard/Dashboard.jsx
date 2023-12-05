@@ -21,7 +21,7 @@ const Dashboard = () => {
                                     Admin Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/propertybought">
+                                <NavLink to="/dashboard/manageproperty">
                                 <FaShoppingCart></FaShoppingCart>
                                     Manage Property</NavLink>
                             </li>
